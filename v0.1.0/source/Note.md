@@ -46,9 +46,9 @@ Once copied, your project should look like this:
 
 If you are looking for specific API references, please visit the documentation folder:
 
-  * [VideoDriver Reference](./v0.1.0/documentation/drivers/VideoDriver.md)
-  * [VFS (Virtual File System)](./v0.1.0/documentation/VFS.md)
-  * [RealityChip Driver](./v0.1.0/documentation/drivers/RealityChipDriver.md)
+  * [VideoDriver Reference](/v0.1.0/documentation/drivers/VideoDriver.md)
+  * [VFS (Virtual File System)](/v0.1.0/documentation/VFS.md)
+  * [RealityChip Driver](/v0.1.0/documentation/drivers/RealityChipDriver.md)
 
 -----
 
