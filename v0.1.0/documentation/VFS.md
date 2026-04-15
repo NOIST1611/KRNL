@@ -123,6 +123,4 @@ The VFS uses the `Codec` utility to transform Lua tables into strings. This ensu
 ## ⚠️ Limitations & Performance
 * **Storage Limit:** Since the entire root tree is saved at once, the total size of all files + the structure itself cannot exceed the capacity of your `FlashMemory` component.
 * **Path Length:** Paths should be concise to ensure fast traversal.
-* **Mounting:** You must call `fs:Mount()` (usually handled by the Kernel during boot) before any I/O operations can occur.
-
 ---
