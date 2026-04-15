@@ -11,9 +11,8 @@ Welcome to the **KRNL** ecosystem. To begin using the kernel and its advanced dr
 
 To integrate the kernel into your project, you need to move the source files into the Retro Gadgets environment.
 
-1.  **Locate your gadget folder:** Navigate to your Retro Gadgets save directory (usually found in `Documents/Retro Gadgets/Devices/...`).
-2.  **Copy Files:** Copy the entire contents of this folder (the `/KRNL` directory) into your gadget's root file directory.
-3.  **Bootstrap:** In your main script (usually `Main.lua`), add the following line to initialize the system:
+1.  **Copy Files:** Copy the entire contents of this folder (the `/KRNL` directory) into your gadget's root file directory.
+2.  **Bootstrap:** In your main script (usually `CPU0`), add the following line to initialize the system:
 
 <!-- end list -->
 
@@ -32,7 +31,7 @@ Once copied, your project should look like this:
   * `/KRNL/kernel/` — The core system logic and task manager.
   * `/KRNL/kernel/Drivers/` — Hardware abstraction layers (Video, ROM, VFS, etc.).
   * `/KRNL/kernel/Utils/` — Math3D, Codec, and Color utilities.
-  * `/KRNL/OS.lua` — The primary entry point for the API.
+  * `/KRNL/OS` — The primary entry point for the API.
 
 -----
 
