@@ -52,4 +52,4 @@ If you are looking for specific API references, please visit the documentation f
 
 -----
 
-**Happy Coding\!** *KRNL Framework v0.1.0*
+**Happy Coding\!** *KRNL SDK v0.1.0*
