@@ -33,8 +33,8 @@ KRNL isn't just an OS; it's a **platform**. It abstracts the complexity of Retro
 The project follows a version-controlled directory structure to ensure stability for developers:
 
 * **`/v0.1.0/`** — Current stable release.
-    * **`/kernel/`** — The core logic (Process management, VFS, Drivers).
-    * **`/shell/`** — **KRNL NANO**, the default reference OS implementation.
+    * **`/source/`** — The core logic (Process management, VFS, Drivers).
+    * **`/OSGadget/`** — **KRNL NANO**, the default reference OS implementation.
     * **`/documentation/`** — Technical guides and API references for this version.
 * **`LICENSE`** — MIT License.
 
