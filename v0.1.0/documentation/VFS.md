@@ -15,7 +15,7 @@ To use the file system, you must first retrieve the VFS instance from the kernel
 
 ```lua
 local KRNL = require("/KRNL/OS")
-local fs = KRNL.GetVFS("MainFS")
+local fs = KRNL.GetVFS("FlashMemory0")
 
 if not fs then
     print("VFS not found!")
