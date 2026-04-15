@@ -11,7 +11,7 @@ The direct `Save` and `Load` methods in this driver are strictly for **internal 
 
 > **[Recommended Approach]**
 > To store and retrieve data, use the **Virtual File System (VFS)**.
-> 📁 [View VFS Documentation here](https://www.google.com/search?q=/v0.1.0/documentation/kernel/VFS.md)
+> 📁 [View VFS Documentation here](/v0.1.0/documentation/VFS.md)
 
 -----
 
@@ -48,7 +48,7 @@ Returns the current usage of the Flash component.
 
 ## 🚫 Restricted Methods (Kernel Only)
 
-The following methods are implemented but **SHOULD NOT** be used by standard applications. Use the [VFS](https://www.google.com/search?q=/v0.1.0/documentation/kernel/VFS.md) instead.
+The following methods are implemented but **SHOULD NOT** be used by standard applications. Use the [VFS](/v0.1.0/documentation/VFS.md) instead.
 
 ### `flash:Save(data: table)`
 
