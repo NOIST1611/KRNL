@@ -68,7 +68,7 @@ Included in the repository is **KRNL NANO**, a minimalist terminal-based operati
 
 For detailed information on how to build your own OS or apps using KRNL, please refer to the documentation inside the version folders:
 - [API Reference](./v0.1.0/documentation/API.md)
-- [VFS Guide](./v0.1.0/documentation/FILESYSTEM.md)
+- [VFS Guide](./v0.1.0/documentation/VFS.md)
 
 ---
 
