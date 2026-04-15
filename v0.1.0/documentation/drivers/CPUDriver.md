@@ -13,10 +13,10 @@ To use the CPU driver in your task or OS shell, retrieve it using the KRNL drive
 
 ```lua
 local KRNL = require("/KRNL/OS")
-local cpu = KRNL.GetDriver("CPU")
+local cpu = KRNL.GetDriver("CPU0")
 
 if not cpu then
-    print("Error: CPU component is missing!")
+    print("Error: CPU0 component is missing!")
     return
 end
 ```
