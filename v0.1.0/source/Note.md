@@ -1,18 +1,18 @@
 
 -----
 
-# 🚀 Quick Start Guide
+#  Quick Start Guide
 
-Welcome to the **KRNL** ecosystem. To begin using the kernel and its advanced drivers on your gadget, follow these installation steps.
+Welcome to the **KRNL** ecosystem. To begin using the kernel on your gadget, follow these installation steps.
 
 -----
 
-### 📥 Installation
+###  Installation
 
-To integrate the kernel into your project, you need to move the source files into the Retro Gadgets environment.
+To integrate the kernel into your project, you need to move the source files into the gadget.
 
 1.  **Copy Files:** Copy the entire contents of this folder (the `/KRNL` directory) into your gadget's root file directory.
-2.  **Bootstrap:** In your main script (usually `CPU0`), add the following line to initialize the system:
+2.  **Bootstrap:** In your CPU0 script, add the following line to initialize the system:
 
 <!-- end list -->
 
@@ -24,25 +24,25 @@ local KRNL = require("/KRNL/OS")
 
 -----
 
-### 📂 Directory Structure
+###  Directory Structure
 
 Once copied, your project should look like this:
 
   * `/KRNL/kernel/` — The core system logic and task manager.
-  * `/KRNL/kernel/Drivers/` — Hardware abstraction layers (Video, ROM, VFS, etc.).
+  * `/KRNL/kernel/Drivers/` — Hardware abstraction layers (Video, ROM, etc.).
   * `/KRNL/kernel/Utils/` — Math3D, Codec, and Color utilities.
   * `/KRNL/OS` — The primary entry point for the API.
 
 -----
 
-### ⚠️ Important Notes
+###  Important Notes
 
   * **VFS Initialization:** On the first run, KRNL will automatically format your Flash Memory and create a default directory structure (`/bin`, `/system`, `/home`).
-  * **Hardware Requirements:** Ensure your gadget has the necessary components (CPU, VideoChip, etc.) connected to the motherboard for the drivers to load successfully.
+  * **Hardware Requirements:** Ensure your gadget has the necessary components (CPU, VideoChip, etc.) for the drivers to load successfully.
 
 -----
 
-### 📖 Documentation Links
+###  Documentation Links
 
 If you are looking for specific API references, please visit the documentation folder:
 
