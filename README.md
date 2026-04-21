@@ -47,7 +47,7 @@ The project follows a version-controlled directory structure to ensure stability
 
 Included in the repository is **KRNL NANO**, a minimalist terminal-based operating system built on top of the KRNL engine. 
 
-**Features included in NANO:**
+**Features included in KRNL NANO:**
 * Interactive Shell with command history and scrolling.
 * File manipulation commands (`ls`, `cd`, `mkdir`, `cat`, `write`, `rm`).
 * System monitoring (`usage`, `ram`, `tps`, `sysinfo`).
