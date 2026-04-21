@@ -1,13 +1,13 @@
 
 ---
 
-# 💡 LedDriver Reference
+# LedDriver Reference
 
-The **LedDriver** provides a clean interface for controlling standard LED components. It integrates with the KRNL `Color4` utility and uses a synchronized update loop to manage the visual state of the hardware.
+The **LedDriver** provides a clean interface for controlling standard LED components.
 
 ---
 
-## 📥 Accessing the Driver
+## Accessing the Driver
 
 To control a specific LED (e.g., an status indicator on your gadget):
 
@@ -22,12 +22,11 @@ end
 
 ---
 
-## 🛠️ Methods
+## Methods
 
 ### `led:SetColor(clr: Color4)`
 Updates the target color of the LED.
 * **Parameter:** `clr` — A `Color4` object (from `KRNL.GetUtility("Color4")`).
-* **Note:** The color is applied to the hardware on the next kernel update tick.
 
 ### `led:GetColor(): Color4`
 Returns the current `Color4` object stored in the driver's metadata.
@@ -42,21 +41,7 @@ Returns the current logical state of the LED.
 
 ---
 
-## 🎨 Integration with Color4
-
-Since the driver expects a `Color4` object, you have full control over RGBA values:
-
-```lua
-local Color4 = KRNL.GetUtility("Color4")
-
--- Setting a bright Green color
-led:SetColor(Color4.FromRGB(0, 255, 0))
-led:SetState(true)
-```
-
----
-
-## 💡 Practical Examples
+## Examples
 
 ### 1. Status Blinker (Heartbeat)
 You can create a task that makes the LED blink to indicate the system is alive:
@@ -88,15 +73,5 @@ KRNL.CreateTask({
     end
 })
 ```
-
----
-
-## ⚠️ Internal Logic
-
-The `LedDriver` follows the **Buffered Property** pattern:
-1.  **Logical Update:** When you call `SetColor`, only the `userdata` inside `_driverData` is changed.
-2.  **Hardware Sync:** Inside `_update()`, the driver calls `Color4:Convert()` and pushes the result to the physical `instance.Color` and `instance.State`.
-
-> **Performance Tip:** Do not worry about calling `SetState` every frame inside a task; the driver handles the synchronization efficiently during the kernel's update cycle.
 
 ---
