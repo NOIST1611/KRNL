@@ -1,10 +1,14 @@
-_  _______  _   _ _      
+
+```text
+  _  _______  _   _ _      
  | |/ /  __ \| \ | | |     
  | ' /| |__) |  \| | |     
  |  < |  _  /| . ` | |     
  | . \| | \ \| |\  | |____ 
  |_|\_\_|  \_\_| \_|______|
-      CORE SDK v0.2.0
+       SDK V0.2.0
+```
+
 
 ![Version](https://img.shields.io/badge/version-V0..0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
