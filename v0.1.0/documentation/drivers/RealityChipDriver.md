@@ -1,13 +1,12 @@
 
 ---
 
-# 🌐 RealityChipDriver Reference
+# RealityChipDriver Reference
 
-The **RealityChipDriver** is the gateway between the virtual KRNL environment and the host system. It provides high-level methods for resource monitoring (CPU/RAM), advanced file I/O, and real-world time synchronization.
-
+The **RealityChipDriver** is the gateway between the virtual KRNL environment and the host system.
 ---
 
-## 📥 Accessing the Driver
+## Accessing the Driver
 
 ```lua
 local KRNL = require("/KRNL/OS")
@@ -20,7 +19,7 @@ end
 
 ---
 
-## 📊 System Monitoring
+## System Monitoring
 
 Track how the gadget is performing relative to your host PC's resources.
 
@@ -34,7 +33,7 @@ Track how the gadget is performing relative to your host PC's resources.
 
 ---
 
-## 📅 Time & Date Utilities
+## Time & Date Utilities
 
 The driver provides formatted strings and raw tables for building system clocks and calendars.
 
@@ -53,9 +52,9 @@ Returns a raw table from the hardware:
 
 ---
 
-## 📂 External File System (I/O)
+## External File System (I/O)
 
-Unlike the ROM, which is read-only at runtime, the RealityChip can interact with the local file system.
+RealityChip can interact with the local file system.
 
 ### `reality:LoadSprite(filename, sw, sh)`
 Loads a SpriteSheet from an external file.
@@ -72,14 +71,14 @@ Returns metadata such as file size and creation date.
 
 ---
 
-## 🌐 Network Statistics
+## Network Statistics
 Monitor the data flow through the host network interface.
 * `GetNetworkSent()`: Total data sent (bytes).
 * `GetNetworkReceived()`: Total data received (bytes).
 
 ---
 
-## 💡 Code Example: System Dashboard
+## Code Example: System Dashboard
 
 ```lua
 local video = KRNL.GetDriver("VideoChip")
@@ -102,13 +101,5 @@ KRNL.CreateTask({
     end
 })
 ```
-
----
-
-## ⚠️ Important Notes
-
-1.  **Dependency:** This driver requires the physical `RealityChip` component to be connected to the motherboard.
-2.  **Asset Management:** Use `reality:UnloadAsset(filename)` to free up memory when a loaded sprite or audio sample is no longer needed. Unlike internal Lua tables, hardware-loaded assets must be manually cleared to prevent memory leaks in long-running OS sessions.
-3.  **Pathing:** File paths are relative to the Retro Gadgets environment or absolute, depending on the component's configuration.
 
 ---
