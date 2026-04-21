@@ -1,21 +1,21 @@
 
 -----
 
-# 💾 FlashMemoryDriver Reference
+#  FlashMemoryDriver Reference
 
 The **FlashMemoryDriver** manages the `FlashMemory` component. It provides low-level information about storage capacity and usage.
 
-### ⚠️ IMPORTANT: DEPRECATION NOTICE
+###  IMPORTANT: DEPRECATION NOTICE
 
 The direct `Save` and `Load` methods in this driver are strictly for **internal kernel use**. Applications and users should **NEVER** use these methods directly, as doing so will bypass the KRNL File System, potentially corrupting the entire storage structure.
 
 > **[Recommended Approach]**
 > To store and retrieve data, use the **Virtual File System (VFS)**.
-> 📁 [View VFS Documentation here](/v0.1.0/documentation/VFS.md)
+>  [View VFS Documentation here](/v0.1.0/documentation/VFS.md)
 
 -----
 
-## 📥 Accessing the Driver
+##  Accessing the Driver
 
 ```lua
 local KRNL = require("/KRNL/OS")
@@ -24,7 +24,7 @@ local flash = KRNL.GetDriver("FlashMemory0")
 
 -----
 
-## 📊 Storage Information
+##  Storage Information
 
 These methods allow you to monitor the health and capacity of the storage medium.
 
@@ -46,7 +46,7 @@ Returns the current usage of the Flash component.
 
 -----
 
-## 🚫 Restricted Methods (Kernel Only)
+##  Restricted Methods (Kernel Only)
 
 The following methods are implemented but **SHOULD NOT** be used by standard applications. Use the [VFS](/v0.1.0/documentation/VFS.md) instead.
 
@@ -64,7 +64,7 @@ The following methods are implemented but **SHOULD NOT** be used by standard app
 
 -----
 
-## 💡 Code Example: Memory Monitor
+##  Code Example: Memory Monitor
 
 If you are building a system dashboard, you should use the informational methods only:
 
@@ -77,13 +77,5 @@ print("--- STORAGE STATUS ---")
 print("Capacity: " .. sizeStr)
 print("Used:     " .. usedStr .. " (" .. math.floor(percent) .. "%)")
 ```
-
------
-
-## ⚙️ Internal Logic
-
-1.  **Safety Checks:** The `Save` method automatically checks if the encoded data size exceeds the hardware `instance.Size` before attempting to write.
-2.  **Compression & Encoding:** The driver uses `Codec.Encode` and `Codec.Decode` internally to optimize space and ensure data integrity.
-3.  **Human-Friendly Conversions:** All size calculations are piped through `SizeConverter` for consistent formatting across the OS.
 
 -----
