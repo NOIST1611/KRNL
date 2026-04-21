@@ -1,10 +1,10 @@
-# 📚 KRNL v0.1.0 System Call Reference
+#  KRNL v0.1.0 System Call Reference
 
-This documentation covers the public API (Syscalls) available in **KRNL Core**. All interactions with the kernel should be performed through the `KRNL` module.
+This documentation covers the public API (Syscalls) available in **KRNL**. All interactions with the kernel should be performed through the `OS` module.
 
 ---
 
-## 🚀 Process Management
+##  Process Management
 The Scheduler manages the lifecycle of all software running on the kernel.
 
 ### `KRNL.CreateTask(config: TaskConfig): Task`
@@ -23,17 +23,14 @@ Terminates a task and removes it from the process registry.
 
 ---
 
-## 🔌 Driver & Hardware API
-KRNL abstracts physical Retro Gadgets components into software drivers.
+## Driver & Hardware API
+KRNL abstracts Retro Gadgets components into software drivers.
 
 ### `KRNL.GetDriver(name: string): Driver?`
 Fetches a driver instance by its component name.
-* **Supported Names**: `CPU`, `Lcd`, `KeyboardChip`, `VideoChip`, `ROM`, `Led`, `LedButton`, `Switch`, `Slider`, `RealityChip`, `FlashMemory`.
-* **Note**: If multiple components exist, use `Name0`, `Name1`, etc.
 
 ### `KRNL.GetVFS(name: string): VFSInstance?`
 Retrieves a Virtual File System instance associated with a storage device.
-* **name**: The name of the FlashMemory driver (e.g., `"FlashMemory0"`).
 
 ### `KRNL.GetUtility(name: string): any`
 Accesses built-in kernel utility modules.
@@ -52,3 +49,4 @@ Accesses built-in kernel utility modules.
 function update()
     KRNL.Update()
 end
+```
