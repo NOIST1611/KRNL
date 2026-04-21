@@ -19,6 +19,7 @@
 ---
 
 ## Overview
+
 **KRNL** is a comprehensive **SDK** for building custom operating systems within **Retro Gadgets** providing a robust foundation so you can 
 focus on high-level features instead of writing a kernel from scratch.
 
