@@ -1,11 +1,11 @@
 
-# 📟 LCD Driver Reference
+#  LCD Driver Reference
 
-The **LCD Driver** provides a high-level interface for managing 2-line, 32-character text displays (LcdDisplay components). It handles text alignment, line-by-line printing, and color management using the KRNL `Color4` utility.
+The **LCD Driver** provides a high-level interface for managing 2-line, 32-character text displays
 
 ---
 
-## 📥 Accessing the Driver
+##  Accessing the Driver
 
 To retrieve an LCD driver instance from the kernel:
 
@@ -20,9 +20,7 @@ end
 
 ---
 
-## ✍️ Text Manipulation API
-
-Standard LCDs in Retro Gadgets support up to **32 characters** total (two lines of 16 characters each).
+##  Text Manipulation API
 
 ### `lcd:SetText(text: string)`
 Sets the raw text of the entire display.
@@ -48,9 +46,7 @@ Returns the current string displayed on the LCD.
 
 ---
 
-## 🎨 Color Management
-
-The driver uses the KRNL `Color4` utility. Note that when setting colors, the driver automatically handles the conversion to the hardware-specific format using `:Convert()`.
+##  Color Management
 
 ### `lcd:SetTextColor(color: Color4)`
 Sets the color of the text.
@@ -67,7 +63,7 @@ Returns the current `Color4` object stored in the driver's metadata.
 
 ---
 
-## 💡 Code Examples
+##  Code Examples
 
 ### Simple Boot Screen
 ```lua
@@ -104,11 +100,5 @@ KRNL.CreateTask({
     end
 })
 ```
-
----
-
-## ⚠️ Technical Notes
-* **Buffer Management:** The driver internally ensures the display string is always 32 characters long by padding with spaces. This prevents "ghost text" from previous longer strings.
-* **Internal State:** The driver stores the current colors in `_driverData.userdata`. Accessing the raw hardware `instance.BgColor` directly is discouraged; use the driver methods to ensure the metadata remains synced.
 
 ---
