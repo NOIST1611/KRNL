@@ -78,7 +78,7 @@ Moves or renames a file/directory. Uses Copy + Remove logic.
 Returns the raw Node object (metadata) for the given path.
 
 #### `fs:Commit(): boolean`
-Manually flushes the current VFS state to the physical Flash Memory component.
+Manually flushes the current VFS state to the Flash Memory component.
 
 ---
 
@@ -106,10 +106,6 @@ end
 if fs:IsDir("/tmp/old_data") then
     fs:RemoveAll("/tmp/old_data")
 end
-
--- Execution
-local success, err = fs:Execute("/bin/hello_world.kss")
-if not success then print("Error: " .. err) end
 ```
 
 ---
