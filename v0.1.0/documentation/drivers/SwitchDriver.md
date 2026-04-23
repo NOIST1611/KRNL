@@ -1,13 +1,13 @@
 
 ---
 
-# ⚡ SwitchDriver Reference
+# SwitchDriver Reference
 
-The **SwitchDriver** manages the `Switch` component. It provides a simple way to read or set the toggle position and features an event-driven mechanism to detect when the switch is flipped.
+The **SwitchDriver** manages the `Switch` component.
 
 ---
 
-## 📥 Accessing the Driver
+## Accessing the Driver
 
 ```lua
 local KRNL = require("/KRNL/OS")
@@ -20,16 +20,15 @@ end
 
 ---
 
-## 🔔 Event System
+## Event System
 
 ### `sw.StateChanged`
 A signal that fires whenever the switch is toggled (either from `OFF` to `ON` or vice-versa).
 * **Usage:** `sw.StateChanged:Connect(function() ... end)`
-* **Note:** This event is fired inside the kernel update loop immediately after a change is detected.
 
 ---
 
-## 🛠️ Methods
+## Methods
 
 ### `sw:GetState(): boolean`
 Returns the current logical position of the switch.
@@ -39,11 +38,10 @@ Returns the current logical position of the switch.
 ### `sw:SetState(state: boolean)`
 Programmatically flips the switch to the desired position.
 * **Parameter:** `true` for ON, `false` for OFF.
-* **Effect:** This updates the physical component's state immediately.
 
 ---
 
-## 💡 Practical Examples
+## Examples
 
 ### 1. Basic Toggle Logic
 Running a specific function only when the switch is turned on:
@@ -77,16 +75,4 @@ KRNL.CreateTask({
 })
 ```
 
----
-
-## ⚙️ Internal Mechanics
-
-### State Tracking
-The driver maintains a cached state in `_driverData.userdata.state`. 
-
-### The Update Loop
-During each `_update()` tick, the driver compares the physical `instance.State` with the cached state:
-1. If they differ (`instance.State ~= data.state`), it means the user (or another script) flipped the switch.
-2. The `StateChanged` event is fired.
-3. The cached state is updated to match the physical state.
 ---
