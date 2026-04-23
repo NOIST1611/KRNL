@@ -1,7 +1,7 @@
 
 # VideoDriver Reference
 
-The **VideoDriver** is a high-performance graphics abstraction for the `VideoChip`.
+The **VideoDriver** is a graphics abstraction for the `VideoChip`.
 ---
 
 ## The Rendering Lifecycle
