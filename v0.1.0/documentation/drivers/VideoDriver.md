@@ -1,30 +1,28 @@
 
-# 🎨 VideoDriver Reference
+# VideoDriver Reference
 
-The **VideoDriver** is a high-performance graphics abstraction for the `VideoChip`. It moves beyond simple pixel drawing, providing a full **3D Rendering Pipeline**, custom **Shaders**, and **Double Buffering** support.
-
+The **VideoDriver** is a high-performance graphics abstraction for the `VideoChip`.
 ---
 
-## 🏗️ The Rendering Lifecycle
+## The Rendering Lifecycle
 
-To prevent flickering and ensure high performance, KRNL uses a frame-buffer approach. All 3D drawing operations are queued and sorted by depth before being rasterized.
+KRNL uses a frame-buffer approach to render everything.
 
 ```lua
 local video = KRNL.GetDriver("VideoChip0")
 
 function update()
-    video:FrameStart() -- Starts rendering on the back buffer
+    video:FrameStart() -- Starts rendering
+
+    -- 
     
-    -- 1. Setup Camera/Transform
-    -- 2. Call Draw functions
-    
-    video:FrameEnd() -- Sorts primitives, flushes queue, and flips buffers
+    video:FrameEnd() -- Renders everything on screen
 end
 ```
 
 ---
 
-## 🎥 Camera & Transformation (3D)
+## Camera & Transformation (3D)
 
 KRNL uses a standard **MVP (Model-View-Projection)** matrix system.
 
@@ -44,7 +42,7 @@ Defines the rendering boundaries. Objects closer than `near` or further than `fa
 
 ---
 
-## ⚡ Shader System
+## Shader System
 
 KRNL allows you to inject custom logic into the rendering pipeline via **Vertex** and **Fragment** shaders.
 
@@ -65,7 +63,7 @@ Determines the color of a triangle.
 
 ---
 
-## 📐 Drawing Primitives
+## Drawing Primitives
 
 ### 3D Drawing
 * `video:DrawTri3D(v1, v2, v3)`: Draws a raw 3D triangle.
@@ -77,8 +75,8 @@ Requires a `VideoTexture` object: `{ sheet, sx, sy, tint, bg }`.
 * `video:DrawTri3DTextured(v1, v2, v3, texture)`
 * `video:DrawMeshTextured(mesh, default_texture)`
 
-### 2D Legacy Support (Direct)
-These methods wrap the standard `VideoChip` API for quick 2D HUDs:
+### 2D
+These methods wrap the standard `VideoChip` API.
 * `video:Clear(col)`, `video:SetPixel(x, y, col)`, `video:DrawLine(...)`.
 * `video:FillRect(x1, y1, x2, y2, col)`.
 * `video:DrawText(x, y, font, text, tc, bc)`.
@@ -86,7 +84,7 @@ These methods wrap the standard `VideoChip` API for quick 2D HUDs:
 
 ---
 
-## 🖱️ Interaction (Touch)
+## Interaction (Touch)
 
 Provides easy access to the screen's touch/mouse interface.
 * `video:GetTouchState()`: `boolean` (Is currently touching).
@@ -95,7 +93,7 @@ Provides easy access to the screen's touch/mouse interface.
 
 ---
 
-## 🛠️ Advanced: Uniforms & Buffers
+## Advanced: Uniforms & Buffers
 
 ### `video:SetUniform(key, value)`
 Passes custom data (like time, light positions, or effects) into your shaders.
@@ -104,13 +102,13 @@ video:SetUniform("u_time", cpu:GetRuntime())
 ```
 
 ### `video:SetTargetBuffer(index)`
-Sets which hardware render buffer to use. KRNL supports multi-buffer setups for complex post-processing or UI overlays.
+Sets which hardware render buffer to use.
 
 ---
 
-## 💡 Example: Rendering a Rotating Cube
+## Example: Rendering a Rotating Cube
 ```lua
-local video = KRNL.GetDriver("VideoChip")
+local video = KRNL.GetDriver("VideoChip0")
 video:UseDefaultVertexShader()
 video:UseLambertShader(vec3(1, 1, 1), color.orange)
 
