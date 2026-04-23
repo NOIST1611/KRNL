@@ -1,10 +1,10 @@
-# 🧩 KRNL v0.1.0 Type Definitions
+# KRNL v0.1.0 Type Definitions
 
-This document provides a complete reference for Luau types used within the KRNL Core. Use these types to ensure compatibility when developing drivers or system applications.
+This document provides a complete reference for Luau types used within the KRNL.
 
 ---
 
-## 🏗️ System & Task Types
+## System & Task Types
 
 ### `Task`
 The object representing a living process.
@@ -22,7 +22,7 @@ Configuration used to initialize a task.
 
 ---
 
-## 🗄️ Virtual File System (VFS)
+## Virtual File System (VFS)
 
 ### `NodeType`
 `"file" | "directory"`
@@ -46,7 +46,7 @@ The object managing a mounted storage device.
 
 ---
 
-## 🔌 Driver Base Types
+## Driver Base Types
 
 ### `Driver`
 The base interface for all hardware abstractions.
@@ -56,7 +56,7 @@ The base interface for all hardware abstractions.
 
 ---
 
-## 🖥️ Specialized Drivers
+## Drivers
 
 ### `CPUDriver`
 Standardized access to system time and performance.
@@ -96,7 +96,7 @@ Interface for host system metrics and asset loading.
 
 ---
 
-## 📋 Registry Types
+## Registry Types
 
 | Type | Definition |
 | :--- | :--- |
@@ -106,7 +106,7 @@ Interface for host system metrics and asset loading.
 
 ---
 
-## 🔋 Kernel Singleton
+## Kernel Singleton
 The main object managed by the kernel.
 * `tasks: TaskRegistry`
 * `drivers: DriverRegistry`
