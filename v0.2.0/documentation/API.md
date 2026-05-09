@@ -80,19 +80,19 @@ KRNL abstracts Retro Gadgets components into software drivers. In v0.2.0, the fo
 
 | Driver Name | Component | Description |
 |---|---|---|
-| `CPU` | CPU Chip | Central processing unit (CPU0, CPU1, ...) |
-| `Lcd` | LCD Display | Screen output (Lcd0, Lcd1, ...) |
+| `CPU` | CPU Chip | Central processing unit |
+| `Lcd` | LCD Display | Screen output |
 | `KeyboardChip` | Keyboard Chip | Keyboard input |
 | `VideoChip` | Video Chip | Advanced video rendering |
-| `ROM` | ROM Chip | Read-only memory storage |
+| `ROM` | ROM Chip | Gadget storage |
 | `Led` | LED | LED indicator |
 | `LedButton` | LED Button | Button with LED feedback |
 | `Switch` | Switch | Toggle switch input |
 | `Slider` | Slider | Analog slider input |
 | `RealityChip` | Reality Chip | 3D rendering |
 | `FlashMemory` | Flash Memory | Persistent storage (drives VFS) |
-| `AudioChip` | Audio Chip | **[NEW in v0.2.0]** Audio playback |
-| `Wifi` | Wifi Chip | **[NEW in v0.2.0]** Network connectivity |
+| `AudioChip` | Audio Chip | Audio playback |
+| `Wifi` | Wifi Chip | Network connectivity |
 
 ### `KRNL.GetDriver(name: string): Driver?`
 
@@ -160,7 +160,7 @@ end
 
 ## Network (NET) API
 
-### `KRNL.GetNET(name: string): NETInstance?`  *[NEW in v0.2.0]*
+### `KRNL.GetNET(name: string): NETInstance?`
 
 Retrieves a NET instance associated with a specific Wifi component.
 
@@ -203,7 +203,7 @@ IPC.Listen("system.boot", function(data)
     print("System booted!")
 end)
 
-IPC.Post("system.boot", { time = os.time() })
+IPC.Post("system.boot", {time = 0})
 ```
 
 > For the complete IPC API reference (wildcards, priority, cleanup, etc.), see [IPC.md](./IPC.md).
@@ -212,7 +212,7 @@ IPC.Post("system.boot", { time = os.time() })
 
 ## Execution Handler API
 
-### `KRNL.GetExecutionHandler(): ExecutionHandlerInterface`  *[NEW in v0.2.0]*
+### `KRNL.GetExecutionHandler(): ExecutionHandlerInterface`
 
 Returns the Execution Handler module for registering and managing custom file format handlers.
 
@@ -233,7 +233,7 @@ end, "sync")
 
 ## File Execution
 
-### `KRNL.Execute(vfs: VFSInstance, path: string, killOnFinish: boolean): (boolean, string?, Task?)`  *[NEW in v0.2.0]*
+### `KRNL.Execute(vfs: VFSInstance, path: string, killOnFinish: boolean): (boolean, string?, Task?)`
 
 A unified entry point for executing files from the VFS. Automatically determines the correct execution strategy based on the file extension and the registered Execution Handler.
 
@@ -315,9 +315,9 @@ The following types are exported from the `KRNL` module and can be used for type
 | `SliderDriver` | Slider driver. |
 | `RealityDriver` | Reality chip (3D) driver. |
 | `FlashMemoryDriver` | Flash memory storage driver. |
-| `AudioDriver` | **[NEW]** Audio chip driver. |
-| `WifiDriver` | **[NEW]** Wifi network driver. |
+| `AudioDriver` | Audio chip driver. |
+| `WifiDriver` | Wifi network driver. |
 | `VFSInstance` | Virtual File System instance. |
-| `NETInstance` | **[NEW]** Network client instance. |
-| `IPCInterface` | **[NEW]** Inter-Process Communication interface. |
-| `ExecutionHandlerInterface` | **[NEW]** File execution handler interface. |
+| `NETInstance` | Network client instance. |
+| `IPCInterface` | Inter-Process Communication interface. |
+| `ExecutionHandlerInterface` | File execution handler interface. |
