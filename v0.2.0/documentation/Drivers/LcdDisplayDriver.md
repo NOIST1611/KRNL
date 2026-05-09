@@ -53,16 +53,6 @@ local lcd = KRNL.GetDriver("Lcd0")
 
 ---
 
-## Internal Constants
-
-| Constant | Value | Description |
-|---|---|---|
-| `Prefix` | `"[LCD DRIVER]:"` | Log message prefix for warnings and info. |
-
-These are used internally for logging and are not exported publicly.
-
----
-
 ## API Reference
 
 ### `Lcd.AddDriver(instance: LcdDisplay, name: string, registry: DriverRegistry): LcdDriver?`
