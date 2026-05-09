@@ -46,7 +46,6 @@ Writes text data to a file. Creates the file if it doesn't exist, or overwrites 
 
 ```lua
 fs:Write("/home/greeting.txt", "Hello, World!")
-fs:Write("/system/config.cfg", "theme=dark\nvolume=80")
 ```
 
 #### `fs:Read(path: string): string?`
@@ -84,7 +83,7 @@ if settings then
 end
 ```
 
-#### `fs:Execute(path: string): (boolean, string?)` *[Updated in v0.2.0]*
+#### `fs:Execute(path: string): (boolean, string?)`
 
 Executes a file using the **Execution Handler**. The file extension determines which handler is used (sync or async mode).
 
@@ -238,8 +237,6 @@ Upon a fresh mount, the primary VFS initializes the following directory hierarch
 ├── bin/              — System binaries and executables
 ├── system/
 │   ├── config.cfg    — System configuration (serialized table)
-│   ├── init.kss      — Startup script (KRNL INIT SCRIPT)
-│   └── recovery.kss  — Recovery script for fixing broken init
 ├── home/             — User-specific data and local files
 └── tmp/              — Temporary volatile data
 ```
@@ -254,27 +251,6 @@ Upon a fresh mount, the primary VFS initializes the following directory hierarch
     theme = "default",
     version = "0.2.0"
 }
-```
-
-**`/system/init.kss`** — Boot script executed when KRNL NANO starts:
-
-```
-# KRNL INIT SCRIPT
-clear
-echo KRNL NANO booted.
-echo type 'help' for commands.
-```
-
-**`/system/recovery.kss`** — Recovery script that recreates the init file if it gets corrupted:
-
-```
-# KRNL RECOVERY SCRIPT
-touch /system/init.kss
-append /system/init.kss # KRNL INIT SCRIPT
-append /system/init.kss clear
-append /system/init.kss echo KRNL NANO booted.
-append /system/init.kss echo type 'help' for commands.
-reboot
 ```
 
 ---
