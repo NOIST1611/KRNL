@@ -5,7 +5,7 @@ The **LedButtonDriver** manages `LedButton` components,powerful event-driven sys
 
 ---
 
-## 📥 Accessing the Driver
+## Accessing the Driver
 
 ```lua
 local KRNL = require("/KRNL/OS")
