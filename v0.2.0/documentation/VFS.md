@@ -27,7 +27,7 @@ local KRNL = require("/KRNL/OS")
 -- Access primary VFS (recommended)
 local fs = KRNL.GetPrimaryVFS()
 if not fs then
-    print("VFS not found — no FlashMemory component!")
+    print("VFS not found!")
 end
 
 -- Or access by name
