@@ -122,8 +122,8 @@ Accesses built-in kernel utility modules.
 | `Color4` | RGBA color management utility. |
 | `BetterEvents` | Signal/Event system for inter-process communication (legacy). |
 | `SizeConverter` | File size formatting (bytes to human-readable). |
-| `IPC` | **[NEW]** Inter-Process Communication pub/sub event bus. |
-| `ExecutionHandler` | **[NEW]** Pluggable file format execution system. |
+| `IPC` | Inter-Process Communication pub/sub event bus. |
+| `ExecutionHandler` | Pluggable file format execution system. |
 
 ```lua
 local Color4 = KRNL.GetUtility("Color4")
@@ -141,7 +141,7 @@ Retrieves a Virtual File System instance associated with a specific FlashMemory 
 * **name**: The driver instance name (e.g., `"FlashMemory0"`).
 * **Returns**: `VFSInstance` or `nil`.
 
-### `KRNL.GetPrimaryVFS(): VFSInstance?`  *[NEW in v0.2.0]*
+### `KRNL.GetPrimaryVFS(): VFSInstance?`
 
 Returns the primary VFS instance — the first FlashMemory that was detected during boot. This is a convenience method so you don't need to remember the exact driver name.
 
@@ -167,7 +167,7 @@ Retrieves a NET instance associated with a specific Wifi component.
 * **name**: The Wifi driver instance name (e.g., `"Wifi0"`).
 * **Returns**: `NETInstance` or `nil`.
 
-### `KRNL.GetPrimaryNET(): NETInstance?`  *[NEW in v0.2.0]*
+### `KRNL.GetPrimaryNET(): NETInstance?`
 
 Returns the primary NET instance — the first Wifi component detected during boot.
 
@@ -190,7 +190,7 @@ end
 
 ## Inter-Process Communication (IPC) API
 
-### `KRNL.GetIPC(): IPCInterface`  *[NEW in v0.2.0]*
+### `KRNL.GetIPC(): IPCInterface`
 
 Returns the global IPC interface for pub/sub event-based communication between tasks.
 
