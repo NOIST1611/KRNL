@@ -36,7 +36,7 @@
 
 The project follows a version-controlled directory structure to ensure stability for developers:
 
-* **`/v0.2.0/`** — Legacy stable release.
+* **`/v0.2.0/`** - new release.
     * **`/source/`** — The core logic (Process management, VFS, Drivers).
     * **`/OSGadget/`** — **KRNL NANO**, the default reference OS implementation.
     * **`/documentation/`** — Technical guides and API references for this version.
